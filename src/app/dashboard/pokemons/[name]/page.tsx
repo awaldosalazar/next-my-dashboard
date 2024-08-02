@@ -1,4 +1,4 @@
-import { Pokemon, PokemonsResponse } from "@/pokemons";
+import { Pokemon, PokemonsReponse } from "@/pokemons";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +12,7 @@ interface Props {
 
 // Genera al momento de construir la app estas paginas
 export async function generateStaticParams() {
-    const data: PokemonsResponse = await fetch(`${POKE_API_URL}v2/pokemon?limit=151`)
+    const data: PokemonsReponse = await fetch(`${POKE_API_URL}v2/pokemon?limit=151`)
         .then(response => response.json())
 
     return data.results.map(({ name }) => ({ name }));
